@@ -18,14 +18,14 @@ app.get('/', (req, res) => {
 /* =====  Handlers for socket connetion ===== */
 
 io.on('connection', socket => {
-    console.log(socket.id + ` has joined`);
+    console.log(`${socket.id} has joined`);
 
     socket.on('disconnect', function () {
-        console.log(socket.id + ` has disconnected`);
+        console.log(`${socket.id} has disconnected`);
     })
 });
 
 let port = process.env.PORT || 2112;
 server.listen(port, () => {
-    console.log('Quiz app listening on port ' + port);
+    console.log(`Quiz app listening on port ${port}`);
 });
