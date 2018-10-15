@@ -4,4 +4,12 @@
     socket.on('connect', () => {
         console.log(`${socket.id} has joined`);
     });
+
+    /*  use this to create room, etc...
+
+        socket.connection.emit('createRoom', room, function (data) {
+            console.log(data)
+        })
+        
+    */
 </script>
