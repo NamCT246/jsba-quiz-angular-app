@@ -5,7 +5,8 @@ const server = require('http').Server(app);
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const mongodb = require('mongodb');
+const mongodb = require("mongodb");
+const ObjectID = mongodb.ObjectID;
 
 const socketio = require('./app/socket');
 
@@ -21,31 +22,26 @@ app.get('/', (req, res) => {
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 let db;
 
-// mongodb.MongoClient.connect(
-//     process.env.MONGODB_URI,
-//     function (err, database) {
-//         if (err) {
-//             console.log(err);
-//             process.exit(1);
-//         }
+mongodb.MongoClient.connect(
+    process.env.MONGODB_URI,
+    function (err, database) {
+        if (err) {
+            console.log(err);
+            process.exit(1);
+        }
 
-//         // Save database object from the callback for reuse.
-//         // mongo version ^3.0 will return a client object containing the database object
-//         db = database.db('quiz-app');
-//         console.log('Database connection ready');
+        // Save database object from the callback for reuse.
+        // mongo version ^3.0 will return a client object containing the database object
+        db = database.db('quiz-app');
+        console.log('Database connection ready');
 
-//         // Initialize the app.
-//         const port = process.env.PORT || 2112;
-//         server.listen(port, () => {
-//             console.log(`Quiz app listening on port ${port}`);
-//         });
-//     }
-// );
+        // Initialize the app.
+        const port = process.env.PORT || 2112;
+        server.listen(port, () => {
+            console.log(`Quiz app listening on port ${port}`);
+        });
 
-socketio.initSocketServer(server);
-
-// Initialize the app. This will be bind to Mongo Connection later.
-const port = process.env.PORT || 2112;
-server.listen(port, () => {
-    console.log(`Quiz app listening on port ${port}`);
-});
+        // start socket server
+        socketio.initSocketServer(server);
+    }
+);
