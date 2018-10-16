@@ -1,15 +1,33 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-<script>
-    var socket = io();
-    socket.on('connect', () => {
-        console.log(`${socket.id} has joined`);
-    });
+<!DOCTYPE html>
+<html>
 
-    /*  use this to create room, etc...
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quiz App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 
-        socket.connection.emit('createRoom', room, function (data) {
-            console.log(data)
-        })
-        
-    */
-</script>
+</head>
+
+<body>
+    <h1>Test if this is working</h1>
+
+
+    <script>
+        var socket = io();
+        socket.on('connect', () => {
+            console.log(`${socket.id} has joined`);
+        });
+
+        /*  use this to create room, etc...
+
+            socket.connection.emit('createRoom', room, function (data) {
+                console.log(data)
+            })
+            
+        */
+    </script>
+</body>
+
+</html>
