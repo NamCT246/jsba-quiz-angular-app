@@ -13,11 +13,11 @@ const socketio = require('./app/socket');
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, '../quiz-client/dist')));
+app.use(express.static(path.join(__dirname, '/../quiz-client/dist/quiz-client')));
 
 // This will allow Angular to handle the routing
 app.get('/*', (req, res) => {
-    res.sendFile(__dirname + '../quiz-client/dist/index.html');
+    res.sendFile(path.resolve('../quiz-client/dist/quiz-client/index.html'));
 });
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
