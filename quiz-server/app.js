@@ -13,7 +13,7 @@ const socketio = require('./app/socket');
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../quiz-client/dist')));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
