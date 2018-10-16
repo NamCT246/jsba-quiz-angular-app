@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 let db;
-console.log(process.env.MONGODB_URI);
+
 mongodb.MongoClient.connect(
     process.env.MONGODB_URI,
     function (err, database) {
