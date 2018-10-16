@@ -1,1 +1,1 @@
-web: node quiz-server/app.js
+web: npm start --prefix quiz-server
