@@ -2,6 +2,7 @@
     "name": "quiz-app",
     "version": "1.0.0",
     "scripts": {
-        "postinstall": "npm install --prefix quiz-server && npm install --prefix quiz-client"
+        "preinstall": "npm install --prefix quiz-server && npm install --prefix quiz-client",
+        "postinstall": "cd quiz-client &&  ng build --aot -prod"
     }
 }
