@@ -1,1 +1,1 @@
-web: npm start --prefix quiz-server
+web: cd quiz-client &&  ng build --aot -prod && cd ../ && npm start --prefix quiz-server
