@@ -15,8 +15,9 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '../quiz-client/dist')));
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+// This will allow Angular to handle the routing
+app.get('/*', (req, res) => {
+    res.sendFile(__dirname + '../quiz-client/dist/index.html');
 });
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
