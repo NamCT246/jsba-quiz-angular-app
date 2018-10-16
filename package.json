@@ -2,7 +2,10 @@
     "name": "quiz-app",
     "version": "1.0.0",
     "scripts": {
-        "preinstall": "npm install --prefix quiz-server && npm install --prefix quiz-client && npm install -g angular-cli && cd quiz-client",
+        "preinstall": "npm install --prefix quiz-server && npm install --prefix quiz-client && npm install -g @angular-cli && cd quiz-client",
         "postinstall": "ng build && mv dist/* ."
+    },
+    "dependencies": {
+        "@angular/cli": "~6.2.1"
     }
 }
